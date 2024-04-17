@@ -32,9 +32,9 @@
 //plugin version
  define('PLUGIN_TR_VERSION', '0.1.0-beta');
 // Minimal GLPI version
-define('PLUGIN_TR_MIN_GLPI', '10');
+define('PLUGIN_TR_MIN_GLPI', '9.4');
 // Maximum GLPI version
-define('PLUGIN_TR_MAX_GLPI', '10.0.14');
+define('PLUGIN_TR_MAX_GLPI', '10.1.1');
 
 function plugin_init_tr() {
   global $PLUGIN_HOOKS, $CFG_GLPI, $LANG;
