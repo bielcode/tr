@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <name>TR</name>
+   <key>tr</key>
+   <state>beta</state>
+   <logo>https://raw.githubusercontent.com/bielcode/tr/master/tr.png</logo>
+   <description>
+      <short>
+         <pt_BR><![CDATA[Plugin para gerar TR.]]></pt_BR>
+      </short>
+      <long>
+         <pt_BR><![CDATA[Plugin para gerar Termo de Responsabilidade baseado em informações do ticket.]]></pt_BR>
+         </long>
+   </description>
+   <homepage>https://github.com/bielcode/tr</homepage>
+   <download>https://github.com/bielcode/tr/releases</download>
+   <authors>
+      <author>Gabriel Carneiro</author>
+   </authors>
+   <versions>
+      <version>
+         <num>0.1.0-beta</num>
+         <compatibility>~10.0.11</compatibility>
+         <download_url>https://github.com/bielcode/tr/archive/refs/tags/v0.1.0-beta.tar.gz</download_url>
+      </version>
+   <langs>
+      <lang>pt_BR</lang>
+    </langs>
+   <license><![CDATA[AGPL v3+]]></license>
+    <tags>
+   </tags>
+</root>

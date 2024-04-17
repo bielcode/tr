@@ -1,31 +1,32 @@
 <?php
 /*
    ------------------------------------------------------------------------
-   Plugin OS
-   Copyright (C) 2016-2024 by Junior Marcati
-   https://github.com/juniormarcati/os
+   Plugin TR
+   Copyright (C) 2024 by Gabriel Carneiro
+   https://github.com/bielcode/tr
+   Forked from https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
-   This file is part of Plugin OS project.
-   Plugin OS is free software: you can redistribute it and/or modify
+   This file is part of Plugin TR project.
+   Plugin TR is free software: you can redistribute it and/or modify
    it under the terms of the GNU Affero General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-   Plugin OS is distributed in the hope that it will be useful,
+   Plugin TR is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
    GNU Affero General Public License for more details.
    You should have received a copy of the GNU Affero General Public License
-   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   along with Plugin TR. If not, see <http://www.gnu.org/licenses/>.
    ------------------------------------------------------------------------
-   @package   Plugin OS
-   @author    Junior Marcati
+   @package   Plugin TR
+   @author    Gabriel Carneiro
    @co-author
-   @copyright Copyright (c) 2016-2024 OS Plugin Development team
+   @copyright Copyright (c) 2024 TR Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
-   @since     2016
+   @link      https://github.com/bielcode/tr
+   @since     2024
    ------------------------------------------------------------------------
  */
 include ("../../../inc/includes.php");

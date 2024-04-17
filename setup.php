@@ -1,75 +1,76 @@
 <?php
 /*
    ------------------------------------------------------------------------
-   Plugin OS
-   Copyright (C) 2016-2024 by Junior Marcati
-   https://github.com/juniormarcati/os
+   Plugin TR
+   Copyright (C) 2024 by Gabriel Carneiro
+   https://github.com/bielcode/tr
+   Forked from https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
-   This file is part of Plugin OS project.
-   Plugin OS is free software: you can redistribute it and/or modify
+   This file is part of Plugin TR project.
+   Plugin TR is free software: you can redistribute it and/or modify
    it under the terms of the GNU Affero General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-   Plugin OS is distributed in the hope that it will be useful,
+   Plugin TR is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
    GNU Affero General Public License for more details.
    You should have received a copy of the GNU Affero General Public License
-   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   along with Plugin TR. If not, see <http://www.gnu.org/licenses/>.
    ------------------------------------------------------------------------
-   @package   Plugin OS
-   @author    Junior Marcati
+   @package   Plugin TR
+   @author    Gabriel Carneiro
    @co-author
-   @copyright Copyright (c) 2016-2024 OS Plugin Development team
+   @copyright Copyright (c) 2024 TR Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
-   @since     2016
+   @link      https://github.com/bielcode/tr
+   @since     2024
    ------------------------------------------------------------------------
  */
 //plugin version
- define('PLUGIN_OS_VERSION', '0.2.0-beta7');
+ define('PLUGIN_TR_VERSION', '0.1.0-beta');
 // Minimal GLPI version
-define('PLUGIN_OS_MIN_GLPI', '9.4');
+define('PLUGIN_TR_MIN_GLPI', '10');
 // Maximum GLPI version
-define('PLUGIN_OS_MAX_GLPI', '10.1.1');
+define('PLUGIN_TR_MAX_GLPI', '10.0.11');
 
-function plugin_init_os() {
+function plugin_init_tr() {
   global $PLUGIN_HOOKS, $CFG_GLPI, $LANG;
-  $PLUGIN_HOOKS['csrf_compliant']['os'] = true;
+  $PLUGIN_HOOKS['csrf_compliant']['tr'] = true;
 
-  Plugin::registerClass('PluginOsConfig', ['addtabon' => ['Entity']]);
-  Plugin::registerClass('PluginOsProfile', ['addtabon' => 'Profile']);
-  $PLUGIN_HOOKS['change_profile']['os'] = ['PluginOsProfile','initProfile'];
+  Plugin::registerClass('PluginTrConfig', ['addtabon' => ['Entity']]);
+  Plugin::registerClass('PluginTrProfile', ['addtabon' => 'Profile']);
+  $PLUGIN_HOOKS['change_profile']['tr'] = ['PluginOsProfile','initProfile'];
 
-  if (Session::haveRight('plugin_os', READ)) {
-    Plugin::registerClass('PluginOsConfig', ['addtabon' => 'Ticket']);
+  if (Session::haveRight('plugin_tr', READ)) {
+    Plugin::registerClass('PluginTrConfig', ['addtabon' => 'Ticket']);
  }
 
-  $_SESSION["glpi_plugin_os_profile"]['os'] = 'w';
-  if (isset($_SESSION["glpi_plugin_os_profile"])) {
-    $PLUGIN_HOOKS["menu_toadd"]['os'] = array('plugins'  => 'PluginOsConfig');
+  $_SESSION["glpi_plugin_tr_profile"]['tr'] = 'w';
+  if (isset($_SESSION["glpi_plugin_tr_profile"])) {
+    $PLUGIN_HOOKS["menu_toadd"]['tr'] = array('plugins'  => 'PluginTrConfig');
     }
 }
 
 // Config page
 if (Session::haveRight('config', UPDATE)) {
-  $PLUGIN_HOOKS['config_page']['os'] = 'front/index.php';
+  $PLUGIN_HOOKS['config_page']['tr'] = 'front/index.php';
 }
-$PLUGIN_HOOKS['change_profile']['os'] = 'plugin_change_profile_os';
+$PLUGIN_HOOKS['change_profile']['tr'] = 'plugin_change_profile_tr';
 
-function plugin_version_os() {
+function plugin_version_tr() {
   return [
-    'name'          => 'OS',
-    'version'       => PLUGIN_OS_VERSION ,
-    'author'        => 'Junior Marcati',
+    'name'          => 'TR',
+    'version'       => PLUGIN_TR_VERSION ,
+    'author'        => 'Gabriel Carneiro',
     'license'       => 'AGPLv3+',
-    'homepage'      => 'https://github.com/juniormarcati/os',
+    'homepage'      => 'https://github.com/bielcode/tr',
     'requirements'  => [
       'glpi'  => [
-        'min' => PLUGIN_OS_MIN_GLPI,
-        'max' => PLUGIN_OS_MAX_GLPI,
+        'min' => PLUGIN_TR_MIN_GLPI,
+        'max' => PLUGIN_TR_MAX_GLPI,
       ]
     ]
   ];

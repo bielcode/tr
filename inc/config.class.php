@@ -1,43 +1,44 @@
 <?php
 /*
    ------------------------------------------------------------------------
-   Plugin OS
-   Copyright (C) 2016-2024 by Junior Marcati
-   https://github.com/juniormarcati/os
+   Plugin TR
+   Copyright (C) 2024 by Gabriel Carneiro
+   https://github.com/bielcode/tr
+   Forked from https://github.com/juniormarcati/os
    ------------------------------------------------------------------------
    LICENSE
-   This file is part of Plugin OS project.
-   Plugin OS is free software: you can redistribute it and/or modify
+   This file is part of Plugin TR project.
+   Plugin TR is free software: you can redistribute it and/or modify
    it under the terms of the GNU Affero General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-   Plugin OS is distributed in the hope that it will be useful,
+   Plugin TR is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
    GNU Affero General Public License for more details.
    You should have received a copy of the GNU Affero General Public License
-   along with Plugin OS. If not, see <http://www.gnu.org/licenses/>.
+   along with Plugin TR. If not, see <http://www.gnu.org/licenses/>.
    ------------------------------------------------------------------------
-   @package   Plugin OS
-   @author    Junior Marcati
+   @package   Plugin TR
+   @author    Gabriel Carneiro
    @co-author
-   @copyright Copyright (c) 2016-2024 OS Plugin Development team
+   @copyright Copyright (c) 2024 TR Plugin Development team
    @license   AGPL License 3.0 or (at your option) any later version
               http://www.gnu.org/licenses/agpl-3.0-standalone.html
-   @link      https://github.com/juniormarcati/os
-   @since     2016
+   @link      https://github.com/bielcode/tr
+   @since     2024
    ------------------------------------------------------------------------
  */
-class PluginOsConfig extends CommonDBTM {
+class PluginTrConfig extends CommonDBTM {
    static protected $notable = true;
    static function getMenuName() {
-      return __('Os');
+      return __('Tr');
    }
    static function getMenuContent() {
    	global $CFG_GLPI;
    	$menu = array();
-      $menu['title']   = __('Ordem de Serviço','os');
-      $menu['page']    = "/plugins/os/front/index.php";
+      $menu['title']   = __('Termo de Responsabilidade','tr');
+      $menu['page']    = "/plugins/tr/front/index.php";
    	return $menu;
    }
    // add tabs
@@ -45,13 +46,13 @@ class PluginOsConfig extends CommonDBTM {
       // add ticket tab
       switch (get_class($item)) {
          case 'Ticket':
-            return array(1 => __('Ordem de Serviço','os'));
+            return array(1 => __('Termo de Responsabilidade','tr'));
          default:
       }
       // add entity tab
       switch (get_class($item)) {
          case 'Entity':
-            return array(1 => __('Dados para O.S.','os'));
+            return array(1 => __('Dados para T.R.','tr'));
          default:
          return '';
       }
@@ -80,7 +81,7 @@ class PluginOsConfig extends CommonDBTM {
       echo "<script type='text/javascript'>";
       echo "function setIframeSource() {";
       echo "var theSelect = document.getElementById('PageType');";
-      echo "var theIframe = document.getElementById('OsIframe');";
+      echo "var theIframe = document.getElementById('TrIframe');";
       echo "var theUrl;";
       echo "theUrl = theSelect.options[theSelect.selectedIndex].value;";
       echo "theIframe.src = theUrl;";
@@ -91,11 +92,11 @@ class PluginOsConfig extends CommonDBTM {
       echo "<form id='form1' method='post'>";
       echo "<label>Selecione o Layout </label>";
       echo "<select id='PageType' onchange='setIframeSource()'>";
-      echo "<option value='$url/plugins/os/front/os_pdf.php?id=$ID'>A4</option>";
-      echo "<option value='$url/plugins/os/front/os_pdflabel.php?id=$ID'>Label</option>";
+      echo "<option value='$url/plugins/tr/front/tr_pdf.php?id=$ID'>A4</option>";
+      echo "<option value='$url/plugins/tr/front/tr_pdflabel.php?id=$ID'>Label</option>";
       echo "</select>";
       echo "</form>";
-      echo "<iframe id='OsIframe' src='$url/plugins/os/front/os_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='80%' height='700'></iframe>";
+      echo "<iframe id='TrIframe' src='$url/plugins/tr/front/tr_pdf.php?id=$ID' frameborder='0' marginwidth='0' marginheight='0' width='80%' height='700'></iframe>";
       echo "</body>";
    }
    // entity tab
