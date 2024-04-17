@@ -30,7 +30,7 @@
    ------------------------------------------------------------------------
  */
 include ('../../../inc/includes.php');
-include ('configOs.php');
+include ('configTr.php');
 include ('../inc/pdf/fpdf.php');
 include ('../inc/qrcode/vendor/autoload.php');
 global $DB;
@@ -44,11 +44,11 @@ $pdf = new FPDF('P','mm',array(95,70));
 $pdf->AddPage();
 $pdf->Ln(3);
 // Logo
-$pdf->Image('../pics/logo_os.png',15,0,40);
+$pdf->Image('../pics/logo_tr.png',15,0,40);
 $pdf->Ln();
 // Title
 $pdf->SetFont('Arial','B',$titleSize);
-$pdf->Cell(50,6,utf8_decode("OS Nº $OsId"),0,0,'C');
+$pdf->Cell(50,6,utf8_decode("TR Nº TrId"),0,0,'C');
 $pdf->Ln();
 // Cabecalho
 $pdf->SetFont('Arial','B',$titleSizeCn);
@@ -62,7 +62,7 @@ $pdf->Ln();
 $pdf->Cell(50,2.5,utf8_decode(strip_tags(htmlspecialchars_decode("$EnderecoPlugin - $CidadePlugin"))),0,0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','',$fontSize);
-$pdf->Cell(50,2.5,utf8_decode("RESPONSÁVEL: $OsResponsavel"),0,0,'L');
+$pdf->Cell(50,2.5,utf8_decode("RESPONSÁVEL: $TrResponsavel"),0,0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','',$fontSize);
 $pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
@@ -73,7 +73,7 @@ $pdf->Ln();
 $pdf->SetFont('Arial','',$fontSize);
 $pdf->Cell(50,2.5,utf8_decode("REQUERENTE: $UserName"),0,0,'L');
 $pdf->Ln();
-$pdf->Cell(50,2.5,utf8_decode("DATA: $DataOs"),0,0,'L');
+$pdf->Cell(50,2.5,utf8_decode("DATA: $DataTr"),0,0,'L');
 $pdf->Ln();
 $pdf->SetFont('Arial','',$fontSize);
 $pdf->Cell(50,1,"-------------------------------------------------------------",0,0,'L');
@@ -124,5 +124,5 @@ $currentPosition = $pdf->GetY();
 
 $pdf->Image('../pics/qr.png', $x = 20, $currentPosition + 2, $width, $height);
 // Generating pdf file
-$fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
+$fileName = ''. $EmpresaPlugin .' - TR#'. $TrId .'.pdf';
 $pdf->Output('I',$fileName);

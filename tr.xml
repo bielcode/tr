@@ -20,7 +20,7 @@
    <versions>
       <version>
          <num>0.1.0-beta</num>
-         <compatibility>~10.0.11</compatibility>
+         <compatibility>~10.0.14</compatibility>
          <download_url>https://github.com/bielcode/tr/archive/refs/tags/v0.1.0-beta.tar.gz</download_url>
       </version>
    <langs>

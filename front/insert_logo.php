@@ -43,7 +43,7 @@ if(isset($_FILES['arquivo']['name']) && $_FILES["arquivo"]["error"] == 0)
 	$extensao = strtolower($extensao);
 	if(strstr('.png', $extensao))
 	{
-		$novoNome = "logo_os.png";
+		$novoNome = "logo_tr.png";
 		$destino = '../pics/' . $novoNome; 
 		if( @move_uploaded_file( $arquivo_tmp, $destino  ))
 		{

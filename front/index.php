@@ -32,7 +32,7 @@
 include ('../../../inc/includes.php');
 global $DB;
 Session::checkRight("config", UPDATE);
-Html::header('OS', "", "plugins", "os");
+Html::header('TR', "", "plugins", "tr");
 ?>
 <html>
 <head>
@@ -44,7 +44,7 @@ Html::header('OS', "", "plugins", "os");
       if (isset($_SESSION["glpipalette"])) {
          echo Html::css($CFG_GLPI["root_doc"]."/css/palettes/".$_SESSION["glpipalette"].".css");
       }
-$SelPlugin = "SELECT * FROM glpi_plugin_os_config";
+$SelPlugin = "SELECT * FROM glpi_plugin_tr_config";
 $ResPlugin = $DB->query($SelPlugin);
 $Plugin = $DB->fetchAssoc($ResPlugin);
 $EmpresaPlugin = $Plugin['name'];
@@ -59,8 +59,8 @@ $SitePlugin = $Plugin['site'];
 <div id="container" style="background:#fff; margin:auto; width:60%; border: 1px solid #ddd; padding-bottom:25px;">
 <center>
 <table width="600" border="0" cellpadding="10" cellspacing="10">
-<tr><td><div align="center"><a href="http://glpi-os.sourceforge.net" target="GLPI_OS"><img src="../pics/logotipo.png" alt="GLPI_OS" border="none"/></a></div></td></tr>
-<tr><td><div align="center"><h1>GLPI_OS: Configuração</h1></div></td></tr>
+<tr><td><div align="center"><a href="http://glpi-tr.sourceforge.net" target="GLPI_TR"><img src="../pics/logotipo.png" alt="GLPI_TR" border="none"/></a></div></td></tr>
+<tr><td><div align="center"><h1>GLPI_TR: Configuração</h1></div></td></tr>
 </table> 
 </center>
 <center>
@@ -82,8 +82,8 @@ $SitePlugin = $Plugin['site'];
 </form>
 </center>
 <center>
-<tr><td><div align="center"><h3>PASSO 2 - Logotipo da OS</h3></div></td></tr>
-<tr><td><div align="center"><h4>Faça UPLOAD do logotipo (300x100) que será utilizado na OS. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
+<tr><td><div align="center"><h3>PASSO 2 - Logotipo do TR</h3></div></td></tr>
+<tr><td><div align="center"><h4>Faça UPLOAD do logotipo (300x100) que será utilizado no termo. (obs: pasta pics precisa ter permissão de escrita.)</h4></div></td></tr>
 <table width="500" border="0" cellpadding="0" cellspacing="0">
 <form method="post" enctype="multipart/form-data" action="insert_logo.php">
 <br/>

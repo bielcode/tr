@@ -46,7 +46,7 @@ if(isset($_POST["rn"])) {
 	$location = $DB->result($result,0,'name');
 
 	$insert = "
-		INSERT INTO glpi_plugin_os_rn (entities_id, rn) 
+		INSERT INTO glpi_plugin_tr_rn (entities_id, rn) 
 		VALUES ('$ent_id', '$rn') 
 		ON DUPLICATE KEY UPDATE rn='$rn'";
 
@@ -57,7 +57,7 @@ if(isset($_POST["rn"])) {
 
 if($_POST["rn"] == "") {
 	
-	$query = "DELETE FROM glpi_plugin_os_rn WHERE entities_id = ".$_POST["id"];
+	$query = "DELETE FROM glpi_plugin_tr_rn WHERE entities_id = ".$_POST["id"];
 	$DB->query($query) or die ("error removing rn");
 	
 	echo "<meta HTTP-EQUIV='refresh' CONTENT='0;URL=".$CFG_GLPI['root_doc']."/front/entity.form.php?id=".$ent_id."'>";	

@@ -30,7 +30,7 @@
    ------------------------------------------------------------------------
  */
 include ('../../../inc/includes.php');
-include ('configOs.php');
+include ('configTr.php');
 include ('../inc/pdf/fpdf.php');
 include ('../inc/qrcode/vendor/autoload.php');
 global $DB;
@@ -45,27 +45,27 @@ class PDF extends FPDF {
 		global $CidadePlugin;
 		global $SitePlugin;
 		global $TelefonePlugin;
-		global $DataOs;
-		global $OsId;
+		global $DatTr;
+		global $TrId;
 		// Logo
 		$this->Cell(30);
-		$this->Image('../pics/logo_os.png',8,15,45);
-		// Title - Line 1: Company name & OS
+		$this->Image('../pics/logo_tr.png',8,15,45);
+		// Title - Line 1: Company name & TR
 		$this->Cell(20);
 		$this->SetFont('Arial','B',11);
 		$this->Cell(90,5,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin"))),0,0,'C');
 		$this->Cell(53,5,"",0,0,'C');
 
-		// Title - Line 2: Phone number & OS Number
+		// Title - Line 2: Phone number & TR Number
 		$this->Ln();
 		$this->Cell(50);
 		$this->SetFont('Arial','B',9);
 		$this->Cell(90,3,utf8_decode(strip_tags(htmlspecialchars_decode("$TelefonePlugin"))),0,0,'C');
 		$this->SetFont('Arial','B',9);
-		$this->Cell(33,3,utf8_decode("OS Nº"),0,0,'C');
+		$this->Cell(33,3,utf8_decode("TR Nº"),0,0,'C');
 		$this->Cell(20,3,"",0,0,'C');
 
-		// Title - Line 3: Company registration number & Os date
+		// Title - Line 3: Company registration number & TR date
 		$this->Ln();
 		$this->SetFont('Arial','',9);
 		$this->SetTextColor(0,0,0);
@@ -73,7 +73,7 @@ class PDF extends FPDF {
 		$this->Cell(90,3,"CNPJ: $CnpjPlugin",0,0,'C');
 		$this->SetFont('Arial','B',11);
 		$this->SetTextColor(250,0,0);
-		$this->Cell(33,3,"$OsId",0,0,'C');
+		$this->Cell(33,3,"$TrId",0,0,'C');
 		$this->SetFont('Arial','',9);
 		$this->SetTextColor(0,0,0);
 		$this->Cell(20,3,"",0,0,'C');
@@ -82,7 +82,7 @@ class PDF extends FPDF {
 		$this->Cell(50);
 		$this->SetFont('Arial','',9);
 		$this->Cell(90,3,utf8_decode(strip_tags(htmlspecialchars_decode("$EnderecoPlugin - $CidadePlugin"))),0,0,'C');
-		$this->Cell(33,3,"$DataOs",0,0,'C');
+		$this->Cell(33,3,"$DataTr",0,0,'C');
 		$this->Cell(20,3,"",0,0,'C');
 		$this->Image('../pics/qr.png',180,10,22);
 		// Title - Line 5: URL
@@ -310,5 +310,5 @@ $pdf->Cell(95,4,utf8_decode(strip_tags(htmlspecialchars_decode("$EmpresaPlugin")
 $pdf->SetFont('Arial','',8);
 $pdf->Cell(95,4,utf8_decode(strip_tags(htmlspecialchars_decode("$EntidadeName"))),0,0,'C');
 // Output PDF
-$fileName = ''. $EmpresaPlugin .' - OS#'. $OsId .'.pdf';
+$fileName = ''. $EmpresaPlugin .' -OS#'. $TrId .'.pdf';
 $pdf->Output('I',$fileName);
