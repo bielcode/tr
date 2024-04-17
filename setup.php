@@ -42,7 +42,7 @@ function plugin_init_tr() {
 
   Plugin::registerClass('PluginTrConfig', ['addtabon' => ['Entity']]);
   Plugin::registerClass('PluginTrProfile', ['addtabon' => 'Profile']);
-  $PLUGIN_HOOKS['change_profile']['tr'] = ['PluginOsProfile','initProfile'];
+  $PLUGIN_HOOKS['change_profile']['tr'] = ['PluginTrProfile','initProfile'];
 
   if (Session::haveRight('plugin_tr', READ)) {
     Plugin::registerClass('PluginTrConfig', ['addtabon' => 'Ticket']);
